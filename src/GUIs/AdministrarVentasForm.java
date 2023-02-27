@@ -126,7 +126,13 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        tblVenta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 205, 40, 26));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/lupa.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        tblVenta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 204, 40, 28));
 
         txtOperador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtOperador.setText("Rosa");
@@ -227,12 +233,13 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Agregar");
-        tblVenta.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 110, 30));
+        tblVenta.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, 110, 30));
 
         txtOperador5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 635, 100, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
+        jScrollPane1.setBorder(null);
 
         jTable1.setBackground(new java.awt.Color(204, 204, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -303,6 +310,10 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
