@@ -44,7 +44,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCliente4 = new javax.swing.JLabel();
         lblCliente5 = new javax.swing.JLabel();
         lblCliente6 = new javax.swing.JLabel();
-        lblCliente7 = new javax.swing.JLabel();
         lblCliente8 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         txtOperador1 = new javax.swing.JTextField();
@@ -56,18 +55,14 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         txtOperador8 = new javax.swing.JTextField();
         txtOperador9 = new javax.swing.JTextField();
         lblCliente9 = new javax.swing.JLabel();
-        lblCliente10 = new javax.swing.JLabel();
         lblCliente11 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        txtOperador5 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblRectangulo1 = new javax.swing.JLabel();
-        lblRectangulo2 = new javax.swing.JLabel();
         lblRectangulo4 = new javax.swing.JLabel();
         txtOperador10 = new javax.swing.JTextField();
-        txtOperador11 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -79,7 +74,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCliente.setForeground(new java.awt.Color(0, 0, 0));
         lblCliente.setText("Cliente:");
-        tblVenta.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 60, -1, -1));
+        tblVenta.add(lblCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
         lblGeneral.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         lblGeneral.setForeground(new java.awt.Color(153, 153, 153));
@@ -93,12 +88,12 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
 
         cboxCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        tblVenta.add(cboxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 55, 170, -1));
+        tblVenta.add(cboxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         lblFecha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(0, 0, 0));
         lblFecha.setText("Fecha:");
-        tblVenta.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(75, 110, -1, -1));
+        tblVenta.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
 
         txtFecha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFecha.setText("21/02/2023  12:10 pm");
@@ -107,21 +102,21 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
                 txtFechaActionPerformed(evt);
             }
         });
-        tblVenta.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 105, 170, -1));
+        tblVenta.add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 200, -1));
 
         lblNumTicket.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblNumTicket.setForeground(new java.awt.Color(0, 0, 0));
         lblNumTicket.setText("No. Ticket:");
-        tblVenta.add(lblNumTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
+        tblVenta.add(lblNumTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
 
         lblOperador.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblOperador.setForeground(new java.awt.Color(0, 0, 0));
         lblOperador.setText("Operador:");
-        tblVenta.add(lblOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+        tblVenta.add(lblOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
 
         txtNumTicket.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtNumTicket.setText("00000");
-        tblVenta.add(txtNumTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 55, 150, -1));
+        tblVenta.add(txtNumTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 150, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -136,7 +131,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
 
         txtOperador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtOperador.setText("Rosa");
-        tblVenta.add(txtOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 105, 150, -1));
+        tblVenta.add(txtOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 150, -1));
 
         lblCliente1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCliente1.setForeground(new java.awt.Color(0, 0, 0));
@@ -168,11 +163,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCliente6.setText("importe:");
         tblVenta.add(lblCliente6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
 
-        lblCliente7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCliente7.setForeground(new java.awt.Color(0, 0, 0));
-        lblCliente7.setText("I.V.A.");
-        tblVenta.add(lblCliente7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 640, -1, -1));
-
         lblCliente8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCliente8.setForeground(new java.awt.Color(0, 0, 0));
         lblCliente8.setText("Código Artículo: ");
@@ -182,7 +172,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Cobrar");
-        tblVenta.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 70, 160, 50));
+        tblVenta.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 620, 160, 50));
 
         txtOperador1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 205, 50, -1));
@@ -213,11 +203,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCliente9.setText("Observaciones:");
         tblVenta.add(lblCliente9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
 
-        lblCliente10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblCliente10.setForeground(new java.awt.Color(0, 0, 0));
-        lblCliente10.setText("Total Neto:");
-        tblVenta.add(lblCliente10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 640, -1, -1));
-
         lblCliente11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblCliente11.setForeground(new java.awt.Color(0, 0, 0));
         lblCliente11.setText("Total a Cobrar");
@@ -234,9 +219,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Agregar");
         tblVenta.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 260, 110, 30));
-
-        txtOperador5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblVenta.add(txtOperador5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 635, 100, -1));
 
         jScrollPane1.setBackground(new java.awt.Color(204, 204, 255));
         jScrollPane1.setBorder(null);
@@ -271,11 +253,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
 
         lblRectangulo1.setBackground(new java.awt.Color(204, 204, 255));
         lblRectangulo1.setOpaque(true);
-        tblVenta.add(lblRectangulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 640, 110));
-
-        lblRectangulo2.setBackground(new java.awt.Color(204, 204, 255));
-        lblRectangulo2.setOpaque(true);
-        tblVenta.add(lblRectangulo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 240, 110));
+        tblVenta.add(lblRectangulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 900, 110));
 
         lblRectangulo4.setBackground(new java.awt.Color(204, 204, 255));
         lblRectangulo4.setOpaque(true);
@@ -283,9 +261,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
 
         txtOperador10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 635, 150, -1));
-
-        txtOperador11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblVenta.add(txtOperador11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 635, 100, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -305,6 +280,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
@@ -361,14 +337,12 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblCargaDeArticulos;
     private javax.swing.JLabel lblCliente;
     private javax.swing.JLabel lblCliente1;
-    private javax.swing.JLabel lblCliente10;
     private javax.swing.JLabel lblCliente11;
     private javax.swing.JLabel lblCliente2;
     private javax.swing.JLabel lblCliente3;
     private javax.swing.JLabel lblCliente4;
     private javax.swing.JLabel lblCliente5;
     private javax.swing.JLabel lblCliente6;
-    private javax.swing.JLabel lblCliente7;
     private javax.swing.JLabel lblCliente8;
     private javax.swing.JLabel lblCliente9;
     private javax.swing.JLabel lblFecha;
@@ -376,7 +350,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumTicket;
     private javax.swing.JLabel lblOperador;
     private javax.swing.JLabel lblRectangulo1;
-    private javax.swing.JLabel lblRectangulo2;
     private javax.swing.JLabel lblRectangulo4;
     private javax.swing.JPanel tblVenta;
     private javax.swing.JTextField txtFecha;
@@ -384,11 +357,9 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtOperador;
     private javax.swing.JTextField txtOperador1;
     private javax.swing.JTextField txtOperador10;
-    private javax.swing.JTextField txtOperador11;
     private javax.swing.JTextField txtOperador2;
     private javax.swing.JTextField txtOperador3;
     private javax.swing.JTextField txtOperador4;
-    private javax.swing.JTextField txtOperador5;
     private javax.swing.JTextField txtOperador6;
     private javax.swing.JTextField txtOperador7;
     private javax.swing.JTextField txtOperador8;
