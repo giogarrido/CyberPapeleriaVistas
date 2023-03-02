@@ -88,6 +88,11 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
 
         cboxCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cboxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboxCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboxClienteActionPerformed(evt);
+            }
+        });
         tblVenta.add(cboxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         lblFecha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -290,6 +295,10 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cboxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboxClienteActionPerformed
 
     /**
      * @param args the command line arguments
