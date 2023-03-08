@@ -1,20 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUIs;
+
+import entidades.Cliente;
+import implementaciones.ClientesDAO;
+import implementaciones.ConexionBD;
+import interfaces.IClientesDAO;
+import java.util.List;
+import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
- * @author giova
+ * @author Giovanni Garrido
  */
-public class AdministrarVentasForm extends javax.swing.JFrame {
+public class VentasForm extends javax.swing.JPanel {
+
+    private DefaultComboBoxModel listaClientes;
+    private IClientesDAO clientesDAO;
 
     /**
-     * Creates new form AdministrarVentasForm
+     * Creates new form VentasForm
      */
-    public AdministrarVentasForm() {
+    public VentasForm() {
+
+        clientesDAO = new ClientesDAO(new ConexionBD());
+        //llenarCBoxClientes();
+        
+        llenarCBoxClientes();
         initComponents();
+
+    }
+
+    private void llenarCBoxClientes() {
+
+        //listaClientes = new DefaultComboBoxModel();
+
+        List<Cliente> clientes = new ArrayList<Cliente>();
+        clientes = clientesDAO.consultarTodos();
+
+        for (int i = 0; i < clientes.size(); i++) {
+           listaClientes.addElement(clientes.get(i));
+           //System.out.println(clientes.get(i));
+        }
+
     }
 
     /**
@@ -30,7 +57,7 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCliente = new javax.swing.JLabel();
         lblGeneral = new javax.swing.JLabel();
         lblCargaDeArticulos = new javax.swing.JLabel();
-        cboxCliente = new javax.swing.JComboBox<>();
+        cboxClientes = new javax.swing.JComboBox<>();
         lblFecha = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         lblNumTicket = new javax.swing.JLabel();
@@ -64,9 +91,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblRectangulo4 = new javax.swing.JLabel();
         txtOperador10 = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 750));
-
         tblVenta.setBackground(new java.awt.Color(255, 255, 255));
         tblVenta.setPreferredSize(new java.awt.Dimension(1000, 750));
         tblVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,14 +110,8 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         lblCargaDeArticulos.setText("Carga de Artículos");
         tblVenta.add(lblCargaDeArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 160, -1));
 
-        cboxCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cboxCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cboxCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboxClienteActionPerformed(evt);
-            }
-        });
-        tblVenta.add(cboxCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
+        cboxClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblVenta.add(cboxClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         lblFecha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(0, 0, 0));
@@ -101,7 +119,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         tblVenta.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
 
         txtFecha.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtFecha.setText("21/02/2023  12:10 pm");
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaActionPerformed(evt);
@@ -120,7 +137,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         tblVenta.add(lblOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, -1, -1));
 
         txtNumTicket.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtNumTicket.setText("00000");
         tblVenta.add(txtNumTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 150, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 0, 255));
@@ -135,7 +151,6 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         tblVenta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 204, 40, 28));
 
         txtOperador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        txtOperador.setText("Rosa");
         tblVenta.add(txtOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 150, -1));
 
         lblCliente1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -267,25 +282,26 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         txtOperador10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 635, 150, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tblVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+            .addGap(0, 1115, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(tblVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(tblVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 772, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(tblVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-
-        pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
@@ -296,47 +312,9 @@ public class AdministrarVentasForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void cboxClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboxClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboxClienteActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdministrarVentasForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdministrarVentasForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdministrarVentasForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdministrarVentasForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AdministrarVentasForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cboxCliente;
+    private javax.swing.JComboBox<String> cboxClientes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
