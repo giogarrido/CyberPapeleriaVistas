@@ -6,6 +6,7 @@ import implementaciones.ConexionBD;
 import interfaces.IClientesDAO;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 
 /**
@@ -22,25 +23,21 @@ public class VentasForm extends javax.swing.JPanel {
      */
     public VentasForm() {
 
-        clientesDAO = new ClientesDAO(new ConexionBD());
-        //llenarCBoxClientes();
-        
-        llenarCBoxClientes();
+
         initComponents();
+
+        clientesDAO = new ClientesDAO(new ConexionBD());
+        llenarCBoxClientes();
 
     }
 
     private void llenarCBoxClientes() {
 
         //listaClientes = new DefaultComboBoxModel();
-
         List<Cliente> clientes = new ArrayList<Cliente>();
         clientes = clientesDAO.consultarTodos();
-
-        for (int i = 0; i < clientes.size(); i++) {
-           listaClientes.addElement(clientes.get(i));
-           //System.out.println(clientes.get(i));
-        }
+        Object[] objetos = clientes.toArray();
+        clientesC.setModel(new DefaultComboBoxModel(objetos));
 
     }
 
@@ -57,7 +54,6 @@ public class VentasForm extends javax.swing.JPanel {
         lblCliente = new javax.swing.JLabel();
         lblGeneral = new javax.swing.JLabel();
         lblCargaDeArticulos = new javax.swing.JLabel();
-        cboxClientes = new javax.swing.JComboBox<>();
         lblFecha = new javax.swing.JLabel();
         txtFecha = new javax.swing.JTextField();
         lblNumTicket = new javax.swing.JLabel();
@@ -87,9 +83,9 @@ public class VentasForm extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        lblRectangulo1 = new javax.swing.JLabel();
         lblRectangulo4 = new javax.swing.JLabel();
         txtOperador10 = new javax.swing.JTextField();
+        clientesC = new javax.swing.JComboBox<>();
 
         tblVenta.setBackground(new java.awt.Color(255, 255, 255));
         tblVenta.setPreferredSize(new java.awt.Dimension(1000, 750));
@@ -109,9 +105,6 @@ public class VentasForm extends javax.swing.JPanel {
         lblCargaDeArticulos.setForeground(new java.awt.Color(153, 153, 153));
         lblCargaDeArticulos.setText("Carga de Artículos");
         tblVenta.add(lblCargaDeArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 160, -1));
-
-        cboxClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblVenta.add(cboxClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         lblFecha.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblFecha.setForeground(new java.awt.Color(0, 0, 0));
@@ -271,16 +264,20 @@ public class VentasForm extends javax.swing.JPanel {
 
         tblVenta.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 900, 220));
 
-        lblRectangulo1.setBackground(new java.awt.Color(204, 204, 255));
-        lblRectangulo1.setOpaque(true);
-        tblVenta.add(lblRectangulo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 900, 110));
-
         lblRectangulo4.setBackground(new java.awt.Color(204, 204, 255));
         lblRectangulo4.setOpaque(true);
         tblVenta.add(lblRectangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 900, 180));
 
         txtOperador10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 635, 150, -1));
+
+        clientesC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clientesC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientesCActionPerformed(evt);
+            }
+        });
+        tblVenta.add(clientesC, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -312,9 +309,13 @@ public class VentasForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void clientesCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clientesCActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cboxClientes;
+    private javax.swing.JComboBox<String> clientesC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -336,7 +337,6 @@ public class VentasForm extends javax.swing.JPanel {
     private javax.swing.JLabel lblGeneral;
     private javax.swing.JLabel lblNumTicket;
     private javax.swing.JLabel lblOperador;
-    private javax.swing.JLabel lblRectangulo1;
     private javax.swing.JLabel lblRectangulo4;
     private javax.swing.JPanel tblVenta;
     private javax.swing.JTextField txtFecha;
