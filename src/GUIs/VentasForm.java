@@ -141,7 +141,7 @@ public class VentasForm extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        tblVenta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 204, 40, 28));
+        tblVenta.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 204, 40, 30));
 
         txtOperador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 150, -1));
