@@ -1,13 +1,18 @@
 package GUIs;
 
-import entidades.Cliente;
-import implementaciones.ClientesDAO;
-import implementaciones.ConexionBD;
-import interfaces.IClientesDAO;
+import Controles.*;
+import Interfaces.*;
+import entidades.*;
+import enumeradores.Estado;
+import enumeradores.Rol;
+import java.util.Calendar;
+
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+
 
 /**
  *
@@ -16,7 +21,8 @@ import javax.swing.DefaultComboBoxModel;
 public class VentasForm extends javax.swing.JPanel {
 
     private DefaultComboBoxModel listaClientes;
-    private IClientesDAO clientesDAO;
+
+    private ILogica logica=new Logica();
 
     /**
      * Creates new form VentasForm
@@ -26,7 +32,7 @@ public class VentasForm extends javax.swing.JPanel {
 
         initComponents();
 
-        clientesDAO = new ClientesDAO(new ConexionBD());
+      
         llenarCBoxClientes();
 
     }
@@ -35,7 +41,7 @@ public class VentasForm extends javax.swing.JPanel {
 
         //listaClientes = new DefaultComboBoxModel();
         List<Cliente> clientes = new ArrayList<Cliente>();
-        clientes = clientesDAO.consultarTodos();
+        clientes = logica.consultarClientes();
         Object[] objetos = clientes.toArray();
         clientesC.setModel(new DefaultComboBoxModel(objetos));
 
@@ -68,7 +74,7 @@ public class VentasForm extends javax.swing.JPanel {
         lblCliente5 = new javax.swing.JLabel();
         lblCliente6 = new javax.swing.JLabel();
         lblCliente8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnCobrar = new javax.swing.JButton();
         txtOperador1 = new javax.swing.JTextField();
         txtOperador2 = new javax.swing.JTextField();
         txtOperador3 = new javax.swing.JTextField();
@@ -84,7 +90,7 @@ public class VentasForm extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lblRectangulo4 = new javax.swing.JLabel();
-        txtOperador10 = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         clientesC = new javax.swing.JComboBox<>();
 
         tblVenta.setBackground(new java.awt.Color(255, 255, 255));
@@ -181,11 +187,16 @@ public class VentasForm extends javax.swing.JPanel {
         lblCliente8.setText("Código Artículo: ");
         tblVenta.add(lblCliente8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 255));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Cobrar");
-        tblVenta.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 620, 160, 50));
+        btnCobrar.setBackground(new java.awt.Color(0, 0, 255));
+        btnCobrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnCobrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCobrar.setText("Cobrar");
+        btnCobrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCobrarActionPerformed(evt);
+            }
+        });
+        tblVenta.add(btnCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 620, 160, 50));
 
         txtOperador1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tblVenta.add(txtOperador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 205, 50, -1));
@@ -268,8 +279,8 @@ public class VentasForm extends javax.swing.JPanel {
         lblRectangulo4.setOpaque(true);
         tblVenta.add(lblRectangulo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 900, 180));
 
-        txtOperador10.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        tblVenta.add(txtOperador10, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 635, 150, -1));
+        txtTotal.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        tblVenta.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 635, 150, -1));
 
         clientesC.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         clientesC.addActionListener(new java.awt.event.ActionListener() {
@@ -313,11 +324,34 @@ public class VentasForm extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_clientesCActionPerformed
 
+    private void btnCobrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCobrarActionPerformed
+FrmCobro frmCobro= new FrmCobro();       
+ frmCobro.mostrarFormulario();
+
+    }//GEN-LAST:event_btnCobrarActionPerformed
+
+public void registrarVenta()
+{
+
+ Cliente cliente= new Cliente();
+        Venta venta = new Venta();
+Calendar fecha = Calendar.getInstance();
+
+// Establecer el año, mes y día
+
+
+    cliente= (Cliente) clientesC.getSelectedItem();
+    venta.setTotalventa(20);
+   Calendar fechaActual = Calendar.getInstance();
+venta.setCaja(new Caja(fechaActual,123,567,23,54,Estado.ABIERTA,new Usuario("Jose","contra",Rol.VENDEDOR)));
+
+  logica.registrarVenta(venta);
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCobrar;
     private javax.swing.JComboBox<String> clientesC;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JScrollPane jScrollPane1;
@@ -343,7 +377,6 @@ public class VentasForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtNumTicket;
     private javax.swing.JTextField txtOperador;
     private javax.swing.JTextField txtOperador1;
-    private javax.swing.JTextField txtOperador10;
     private javax.swing.JTextField txtOperador2;
     private javax.swing.JTextField txtOperador3;
     private javax.swing.JTextField txtOperador4;
@@ -351,5 +384,6 @@ public class VentasForm extends javax.swing.JPanel {
     private javax.swing.JTextField txtOperador7;
     private javax.swing.JTextField txtOperador8;
     private javax.swing.JTextField txtOperador9;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
