@@ -9,6 +9,7 @@ import Interfaces.ILogica;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,6 +18,7 @@ import javax.swing.JFrame;
 public class FrmCobro extends javax.swing.JFrame {
 
 ILogica logica= new Logica();
+VentasForm ventasFrm=null;
 
 
     /**
@@ -25,6 +27,8 @@ ILogica logica= new Logica();
     public FrmCobro() {
         initComponents();
    this.setLocationRelativeTo(null);
+ instanciaVentasForm();
+  
     }
 
     /**
@@ -132,6 +136,7 @@ VentasForm formularioVentas=new VentasForm();
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         cerrarFormulario();
+       instanciaVentasForm().desbloquearCampos();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
 public void mostrarFormulario() {
@@ -142,6 +147,13 @@ public void mostrarFormulario() {
 public void cerrarFormulario() {
         this.dispose();
     }
+
+public VentasForm instanciaVentasForm(){
+ if(ventasFrm==null){
+     ventasFrm=new VentasForm();
+}
+return ventasFrm;
+}
 
  /**
      * @param args the command line arguments

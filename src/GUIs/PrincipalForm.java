@@ -8,13 +8,14 @@ import javax.swing.JPanel;
  */
 public class PrincipalForm extends javax.swing.JFrame {
 
-   
+private  VentasForm ventasForm= new VentasForm();
 
     /**
      * Creates new form PrincipalForm
      */
     public PrincipalForm() {
         initComponents();
+
        
 
     }
@@ -92,8 +93,11 @@ public class PrincipalForm extends javax.swing.JFrame {
 
     private void menuCajaNuevoTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCajaNuevoTicketActionPerformed
         // TODO add your handling code here:
-        VentasForm ventasForm = new VentasForm();
-        mostrarPanel(ventasForm);
+         
+        mostrarPanel(ventasForm.instanciaFrmVentas());
+
+
+
 
 
     }//GEN-LAST:event_menuCajaNuevoTicketActionPerformed
@@ -139,7 +143,13 @@ public class PrincipalForm extends javax.swing.JFrame {
         pnlPrincipal.add(panelActual);
         pnlPrincipal.repaint();
         pnlPrincipal.revalidate();
+
+
+
+
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuCaja;
